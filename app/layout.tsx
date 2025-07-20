@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navigation from "./components/Navigation";
+import Logo from "./components/Logo";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,10 +30,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-         <header>
+        <header>
+          <Logo />
           <Navigation />
         </header>
-        {children}
+        <main className="container mx-auto px-4 py-8">{children}</main>
+        <footer className="text-center py-4">
+          <p className="text-sm text-gray-500">
+            © {new Date().getFullYear()} The Wild Oasis. All rights reserved.
+          </p>
+        </footer>
       </body>
     </html>
   );
