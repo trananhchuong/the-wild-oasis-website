@@ -1,4 +1,9 @@
 import Counter, { UserType } from "@/app/_components/Counter";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cabins",
+};
 
 export default async function Page() {
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
