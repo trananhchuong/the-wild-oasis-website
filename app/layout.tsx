@@ -1,18 +1,13 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import Navigation from "@/app/_components/Navigation";
 import Logo from "@/app/_components/Logo";
+import Navigation from "@/app/_components/Navigation";
 import "@/app/_style/globals.css";
+import type { Metadata } from "next";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+import { Josefin_Sans } from "next/font/google";
+
+const josefin = Josefin_Sans({
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -32,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${josefin.className} antialiased`}
       >
         <header>
           <Logo />
