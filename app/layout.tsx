@@ -4,6 +4,7 @@ import "@/app/_style/globals.css";
 import type { Metadata } from "next";
 
 import { Josefin_Sans } from "next/font/google";
+import Header from "./_components/Header";
 
 const josefin = Josefin_Sans({
   subsets: ["latin"],
@@ -27,18 +28,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${josefin.className} antialiased`}
+        className={`${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col relative`}
       >
-        <header>
-          <Logo />
-          <Navigation />
-        </header>
-        <main className="container mx-auto px-4 py-8">{children}</main>
-        <footer className="text-center py-4">
-          <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} The Wild Oasis. All rights reserved.
-          </p>
-        </footer>
+        <Header />
+        <div className="flex-1 px-8 py-12 grid">
+          <main className="max-w-7xl mx-auto w-full">{children}</main>
+        </div>
       </body>
     </html>
   );
