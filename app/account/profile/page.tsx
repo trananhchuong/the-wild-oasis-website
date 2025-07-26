@@ -2,7 +2,7 @@ import SelectCountry from "@/app/_components/SelectCountry";
 
 export default function Page() {
   // CHANGE
-  const countryFlag = "pt.jpg";
+  // const countryFlag = "pt.jpg";
   const nationality = "portugal";
 
   return (
