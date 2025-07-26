@@ -1,5 +1,3 @@
-import Logo from "@/app/_components/Logo";
-import Navigation from "@/app/_components/Navigation";
 import "@/app/_style/globals.css";
 import type { Metadata } from "next";
 
