@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { eachDayOfInterval } from "date-fns";
 import { supabase } from "@/app/_lib/supabase";
 import { BookingType } from "@/app/_components/ReservationCard";
+import { CabinType } from "@/app/_components/CabinCard";
 
 // Base Types
 export interface CountryType {
@@ -10,16 +11,6 @@ export interface CountryType {
   independent: boolean;
 }
 
-export interface CabinType {
-  id: number;
-  name: string;
-  maxCapacity: number;
-  regularPrice: number;
-  discount: number;
-  image: string;
-  description?: string;
-  created_at?: string;
-}
 
 export interface CabinPriceType {
   regularPrice: number;
