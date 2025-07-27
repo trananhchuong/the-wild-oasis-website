@@ -16,6 +16,9 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default async function Page({ params }: PageProps) {
+  // Quick error simulation - uncomment to test
+  // throw new Error("Test error for ErrorBoundary!");
+  
   const cabin = await getCabin(params.cabinId);
 
   const { name, maxCapacity, image, description } = cabin;
