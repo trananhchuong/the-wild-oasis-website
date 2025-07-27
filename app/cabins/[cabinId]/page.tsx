@@ -1,4 +1,4 @@
-import { getCabin } from "@/app/_lib/data-service";
+import { getCabin, getCabins } from "@/app/_lib/data-service";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
@@ -15,10 +15,17 @@ export async function generateMetadata({ params }: PageProps) {
   return { title: `Cabin ${name}` };
 }
 
+export async function generateStaticParams() {
+  const cabins = await getCabins();
+  const ids = cabins.map((cabin) => ({ cabinId: String(cabin.id) }));
+  console.log("🚀 ~ generateStaticParams ~ ids:", ids)
+  return ids;
+}
+
 export default async function Page({ params }: PageProps) {
   // Quick error simulation - uncomment to test
   // throw new Error("Test error for ErrorBoundary!");
-  
+
   const cabin = await getCabin(params.cabinId);
 
   const { name, maxCapacity, image, description } = cabin;
