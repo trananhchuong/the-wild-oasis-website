@@ -1,8 +1,8 @@
-import { notFound } from "next/navigation";
-import { eachDayOfInterval } from "date-fns";
-import { supabase } from "@/app/_lib/supabase";
-import { BookingType } from "@/app/_components/ReservationCard";
 import { CabinType } from "@/app/_components/CabinCard";
+import { BookingType } from "@/app/_components/ReservationCard";
+import { supabase } from "@/app/_lib/supabase";
+import { eachDayOfInterval } from "date-fns";
+import { notFound } from "next/navigation";
 
 // Base Types
 export interface CountryType {
@@ -10,7 +10,6 @@ export interface CountryType {
   flag: string;
   independent: boolean;
 }
-
 
 export interface CabinPriceType {
   regularPrice: number;
@@ -116,9 +115,6 @@ export async function getCabin(id: number): Promise<CabinType> {
     .eq("id", id)
     .single();
 
-  // For testing
-  // await new Promise((res) => setTimeout(res, 1000));
-
   if (error) {
     console.error(error);
     notFound();
@@ -152,6 +148,8 @@ export const getCabins = async function (): Promise<CabinType[]> {
 
   // For testing
   // await new Promise((res) => setTimeout(res, 2000));
+
+  console.log("🚀 ~ getCabin ~ data:", data);
 
   if (error) {
     console.error(error);
