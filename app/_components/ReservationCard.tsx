@@ -8,15 +8,21 @@ interface FormatDistanceFromNow {
 }
 
 interface BookingType {
-  id: string;
-  guestId: string;
+  id: number;
+  created_at: string;
   startDate: string;
   endDate: string;
   numNights: number;
-  totalPrice: number;
   numGuests: number;
-  status: string;
-  created_at: string;
+  cabinPrice: number;
+  extrasPrice: number;
+  totalPrice: number;
+  status: "unconfirmed" | "checked-in" | "checked-out";
+  hasBreakfast: boolean;
+  isPaid: boolean;
+  observations: string;
+  cabinId: number;
+  guestId: number;
   cabins: {
     name: string;
     image: string;
