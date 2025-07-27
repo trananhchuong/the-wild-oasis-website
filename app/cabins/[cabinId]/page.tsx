@@ -18,7 +18,6 @@ export async function generateMetadata({ params }: PageProps) {
 export async function generateStaticParams() {
   const cabins = await getCabins();
   const ids = cabins.map((cabin) => ({ cabinId: String(cabin.id) }));
-  console.log("🚀 ~ generateStaticParams ~ ids:", ids)
   return ids;
 }
 
