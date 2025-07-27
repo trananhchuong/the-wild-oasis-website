@@ -149,8 +149,6 @@ export const getCabins = async function (): Promise<CabinType[]> {
   // For testing
   // await new Promise((res) => setTimeout(res, 2000));
 
-  console.log("🚀 ~ getCabin ~ data:", data);
-
   if (error) {
     console.error(error);
     throw new Error("Cabins could not be loaded");
